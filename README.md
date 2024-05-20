@@ -70,6 +70,7 @@ List all iris cases ids.
 - Cid - Id of the case that will be exported.
 - Host - Your iris instance host. Must start with: https:// or http://
 - Agent
+- Ssl verify
 
 <strong>Returns</strong>
 ```json
