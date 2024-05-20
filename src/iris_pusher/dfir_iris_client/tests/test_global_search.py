@@ -1,0 +1,46 @@
+#  IRIS Client API Source Code
+#  contact@dfir-iris.org
+#
+#  This program is free software; you can redistribute it and/or
+#  modify it under the terms of the GNU Lesser General Public
+#  License as published by the Free Software Foundation; either
+#  version 3 of the License, or (at your option) any later version.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+#  Lesser General Public License for more details.
+#
+#  You should have received a copy of the GNU Lesser General Public License
+#  along with this program; if not, write to the Free Software Foundation,
+#  Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+from iris_pusher.dfir_iris_client.global_search import global_search_ioc, global_search_notes
+from iris_pusher.dfir_iris_client.helper.utils import assert_api_resp, get_data_from_resp, parse_api_data
+from iris_pusher.dfir_iris_client.tests.tests_helper import InitIrisClientTest
+
+
+class GlobalSearchTest(InitIrisClientTest):
+    """ """
+    def test_search_ioc(self):
+        """ """
+        ret = global_search_ioc(self.session, search_term='%')
+
+        assert assert_api_resp(ret, soft_fail=False)
+
+        data = get_data_from_resp(ret)
+        assert type(parse_api_data(data[0], 'case_name')) is str
+        assert type(parse_api_data(data[0], 'customer_name')) is str
+        assert type(parse_api_data(data[0], 'ioc_description')) is str
+
+    def test_search_notes(self):
+        """ """
+        ret = global_search_notes(self.session, search_term='%')
+
+        assert assert_api_resp(ret, soft_fail=False)
+
+        data = get_data_from_resp(ret)
+        assert type(parse_api_data(data[0], 'case_name')) is str
+        assert type(parse_api_data(data[0], 'client_name')) is str
+        assert type(parse_api_data(data[0], 'note_id')) is int
+        assert type(parse_api_data(data[0], 'note_title')) is str

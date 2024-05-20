@@ -1,0 +1,191 @@
+app_version: 1.0.0
+name: IrisCaseManager
+description: Dfir-Iris case manager for version 2.3.7
+contact_info:
+  name: "@alexandox"
+  email: afanasev.aleksandrlm@gmail.com
+tags:
+  - Iris
+  - v2.3.7
+categories:
+  - Other
+actions:
+  - name: export_case
+    description: Export iris case
+    parameters:
+      - name: apikey
+        description: iris user apikey 
+        required: true
+        example: 'your apikey'
+        multiline: false
+        schema:
+          type: string
+      - name: cid
+        description: iris case id
+        required: true
+        example: "1"
+        multiline: false
+        schema:
+          type: integer
+      - name: host
+        description: Host address can be IP or domain
+        required: true
+        example: 'https://irp.wb.ru/'
+        multiline: false
+        schema:
+          type: string
+      - name: agent
+        description: iris agent
+        required: false
+        example: 'iris-client'
+        multiline: false
+        schema:
+          type: string    
+      - name: ssl_verify
+        description: iris agent
+        required: false
+        example: "False"
+        multiline: false
+        options:
+          - True
+          - False
+        schema:
+          type: boolean
+    returns:
+      schema:
+        type: file
+  - name: export_all_cases
+    description: Export all iris cases
+    parameters:
+      - name: apikey
+        description: iris user apikey 
+        required: true
+        example: 'your apikey'
+        multiline: false
+        schema:
+          type: string
+      - name: host
+        description: Host address can be IP or domain
+        required: true
+        example: 'https://irp.wb.ru/'
+        multiline: false
+        schema:
+          type: string
+      - name: agent
+        description: iris agent
+        required: false
+        example: 'iris-client'
+        multiline: false
+        schema:
+          type: string    
+      - name: ssl_verify
+        description: iris agent
+        required: false
+        example: "False"
+        multiline: false
+        options:
+          - True
+          - False
+        schema:
+          type: boolean
+      - name: in_one_file
+        description: store cases in one zip file
+        required: false
+        example: "False"
+        multiline: false
+        options:
+          - True
+          - False
+        schema:
+          type: boolean
+    returns:
+      schema:
+        type: list
+  - name: list_all_cases
+    description: List all iris cases
+    parameters:
+      - name: apikey
+        description: iris user apikey 
+        required: true
+        example: 'your apikey'
+        multiline: false
+        schema:
+          type: string
+      - name: host
+        description: Host address can be IP or domain
+        required: true
+        example: 'https://irp.wb.ru/'
+        multiline: false
+        schema:
+          type: string
+      - name: agent
+        description: iris agent
+        required: false
+        example: 'iris-client'
+        multiline: false
+        schema:
+          type: string    
+      - name: ssl_verify
+        description: iris agent
+        required: false
+        example: "False"
+        multiline: false
+        options:
+          - True
+          - False
+        schema:
+          type: boolean
+    returns:
+      schema:
+        type: list
+  - name: import_case
+    description: Import case to iris by file_id
+    parameters:
+      - name: apikey
+        description: iris user apikey 
+        required: true
+        example: 'your apikey'
+        multiline: false
+        schema:
+          type: string
+      - name: host
+        description: Host address can be IP or domain
+        required: true
+        example: 'https://irp.wb.ru/'
+        multiline: false
+        schema:
+          type: string
+      - name: file_id
+        description: file id of Case.zip
+        required: true
+        example: 'file id'
+        multiline: false
+        schema:
+          type: string
+      - name: publisher_name
+        description: Case Customer 
+        required: true
+        example: 'IrisInitialClient'
+        multiline: false
+        schema:
+          type: string
+      - name: agent
+        description: iris agent
+        required: false
+        example: 'iris-client'
+        multiline: false
+        schema:
+          type: string    
+      - name: ssl_verify
+        description: iris agent
+        required: false
+        example: "False"
+        multiline: false
+        options:
+          - True
+          - False
+        schema:
+          type: boolean
+    returns:
+      schema:
+        type: dict

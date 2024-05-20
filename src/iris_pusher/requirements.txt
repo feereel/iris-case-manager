@@ -1,0 +1,5 @@
+requests
+packaging
+deprecated
+urllib3
+pydantic
