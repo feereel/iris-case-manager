@@ -1,4 +1,4 @@
-# IRIS CASE MANAGER
+# IRIS CASE MANAGER (v2.3.7)
 
 ## Instalation and update
 
