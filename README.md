@@ -114,7 +114,7 @@ Returns uuid4 of a case in pushed if success.
 ## Case zip structure
 
 All cases stored in folder named "Cases".
-Each case is separated in folder named with uuid4. Inside it case.json contains everything needed to restore case with dependencies. Another files needs for datastore.
+Each case is separated in folder named with uuid4. Inside it case.json contains everything needed to restore case with dependencies. Other files are needed for the datastore.
 
 <strong>Example</strong>
 ```
